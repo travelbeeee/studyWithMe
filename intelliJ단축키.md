@@ -45,3 +45,15 @@ Ctrl + shift + Enter
 Ctrl + N 
 
 Shift + shift 해도됨.
+
+
+
+##### 메소드 extract
+
+Ctrl + alt + M
+
+
+
+##### 파라미터 extract
+
+Ctrl + apl + P
