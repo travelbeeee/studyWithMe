@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>글 세부 내역</title>
+</head>
+<body>
+    <div>제목 : <span th:text="${mainWriting.title}"></span></div>
+    <div>내용 : <span th:text="${mainWriting.content}"></span></div>
+    <div>글쓴이 : <span th:text="${mainWriting.username}"></span></div>
+    <div>작성날짜 : <span th:text="${mainWriting.writingTime}"></span></div>
+
+    <form th:action="@{/writing/delete/{writingId}(writingId=${mainWriting.writingId})}" method="post">
+        <input type="submit" value="글삭제하기">
+    </form>
+    <a th:if="${mainWriting.uploadFileId != -1}" th:href="@{/uploadFile/download/{uploadFileId}(uploadFileId=${mainWriting.uploadFileId})}">파일 다운로드하기</a>
+    <a th:href="@{/writing/modify/{writingId}(writingId=${mainWriting.writingId})}">글 수정하기</a>
+    <a href="/main">돌아가기</a>
+</body>
+</html>

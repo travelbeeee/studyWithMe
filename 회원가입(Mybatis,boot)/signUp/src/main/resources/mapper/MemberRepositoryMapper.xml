@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="study.signUp.repository.MemberRepository">
+
+    <insert id="insert" parameterType="member">
+        INSERT INTO member (id, username,userpwd, salt, email, auth)
+        VALUES (member_seq.nextval, #{username}, #{userpwd}, #{salt}, #{email}, 'UNAUTHORIZATION')
+    </insert>
+    <update id="update" parameterType="member">
+        UPDATE member SET username = #{username}, userpwd = #{userpwd}, email = #{email} WHERE id = #{id}
+    </update>
+    <delete id="delete" parameterType="Long">
+        DELETE member WHERE id = #{id}
+    </delete>
+    <select id="selectByName" parameterType="String" resultType="member">
+        SELECT * FROM member WHERE username = #{username}
+    </select>
+    <select id="selectById" parameterType="Long" resultType="member">
+        SELECT * FROM member WHERE id = #{id}
+    </select>
+    <select id="selectByNamePwd" parameterType="String" resultType="member">
+        SELECT * FROM member WHERE username = #{param1} and userpwd = #{param2}
+    </select>
+    <update id="updateAuth" parameterType="Long">
+        UPDATE member SET auth = 'AUTHORIZATION' where id = #{id}
+    </update>
+</mapper>

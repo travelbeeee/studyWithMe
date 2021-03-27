@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="travelbeeee.communityPjt.repository.WritingRepository">
+
+    <insert id="insert" parameterType="writing">
+        INSERT INTO writing (memberId, uploadfileid, writingid, title, content, writingTime, views)
+        VALUES (#{memberId}, #{uploadFileId}, writing_seq.nextval, #{title}, #{content}, #{writingTime}, 0)
+    </insert>
+    <update id="update" parameterType="writing">
+        UPDATE writing SET title = #{title}, content = #{content}, writingtime = #{writingTime}, uploadfileid = #{uploadFileId} WHERE writingId = #{writingId}
+    </update>
+    <delete id="delete" parameterType="Long">
+        DELETE writing WHERE writingId = #{writingId}
+    </delete>
+    <select id="selectAll"  resultType="writing">
+        SELECT * FROM writing
+    </select>
+    <select id="selectById" parameterType="Long" resultType="writing">
+        SELECT * FROM writing where writingid = #{writingId}
+    </select>
+    <update id="updateViews" parameterType="Long">
+        UPDATE writing SET views = (views + 1) where writingid = #{writingId}
+    </update>
+</mapper>

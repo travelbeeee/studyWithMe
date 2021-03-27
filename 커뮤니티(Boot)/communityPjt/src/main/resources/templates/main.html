@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MainPage</title>
+</head>
+<body>
+    <a href="/member/myPage">마이페이지</a><br>
+    글 List<br>
+    <table>
+        <tr>
+            <th>제목</th>
+            <th>글쓴이</th>
+            <th>작성날짜</th>
+            <th>조회수</th>
+        </tr>
+        <tr th:each="mainWriting : ${writingList}">
+            <td><a th:href="@{/writing/{writingId}(writingId=${mainWriting.writingId})}" th:text="${mainWriting.title}"></a></td>
+            <td th:text="${mainWriting.username}"></td>
+            <td th:text="${mainWriting.writingTime}"></td>
+            <td th:text="${mainWriting.views}"></td>
+        </tr>
+    </table>
+    <a href="/writing/write">글쓰기</a>
+</body>
+</html>

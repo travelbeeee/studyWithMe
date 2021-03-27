@@ -77,7 +77,7 @@ public class MemberServiceImpl implements MemberService {
 직접 지정하고 싶으면 다음과 같이 하면 된다.
 
 ```
-@Component("MyRenameMemberService")
+@Component("MyRenameComponent")
 ```
 
 <br>

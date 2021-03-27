@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="travelbeeee.communityPjt.repository.UploadFileRepository">
+    <insert id="insert" parameterType="uploadfile">
+        <selectKey keyProperty="uploadFileId" order="BEFORE" resultType="Long">
+            SELECT uploadfile_seq.nextval FROM DUAL
+        </selectKey>
+        INSERT INTO uploadfile VALUES (uploadfile_seq.nextval, #{originFileName}, #{changedFileName}, #{location})
+    </insert>
+    <update id="update" parameterType="uploadfile">
+        update uploadfile set originfilename = #{originFileName}, changedfilename = #{changedFileName}, location = #{location}
+    </update>
+    <delete id="delete" parameterType="Long">
+        delete uploadfile where uploadfileid = #{uploadFileId}
+    </delete>
+    <select id="select" parameterType="Long" resultType="uploadfile">
+        SELECT * FROM uploadfile where uploadfileid = #{uploadFileId}
+    </select>
+</mapper>

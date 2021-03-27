@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IndexPage</title>
+</head>
+<body>
+    메일을 받고 싶은 메일을 입력하세요.<br>
+    구글메일보내기<br>
+    <form action="GmailSending" method="post">
+        <input type="email" name="email" placeholder="이메일을입력해주세요">
+        <input type="submit" value="이메일보내기">
+    </form>
+    <br>
+    네이버메일보내기<br>
+    <form action="NmailSending" method="post">
+        <input type="email" name="email" placeholder="이메일을입력해주세요">
+        <input type="submit" value="이메일보내기">
+    </form>
+</body>
+</html>

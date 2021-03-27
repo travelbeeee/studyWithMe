@@ -57,7 +57,7 @@ public NetworkClient networkClient(){
 }
 
 
-public class NetworkClient implements InitializingBean, DisposableBean {
+public class NetworkClient{
     
     public void init() throws Exception 
         // 초기화 콜백
@@ -90,7 +90,7 @@ public NetworkClient networkClient(){
 }
 
 
-public class NetworkClient implements InitializingBean, DisposableBean {
+public class NetworkClient {
     
     @PostConstruct
     public void init() throws Exception 
